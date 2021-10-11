@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.container {
+    margin-top: 3rem;
+    margin-left:auto; 
+    margin-right: auto;
+}
+.carousel-caption{
+    background-color:black;
+}
+
+.carousel-caption h5{
+    font-size: 18px;
+}
+
+.carousel-caption p{
+    font-size: 12px;
+}
+
+h1{
+    text-align: center;
+    font-size: 38px;
+    font-family: 'Shadows Into Light', cursive;
+}

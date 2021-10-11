@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <h1>Contact Us</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+        <h6 class="submitresult" *ngIf="ok">Your form is submitted!</h6>
+
+
+        <label>
+            Name:
+            <input type="text" formControlName="name">
+            <div *ngIf="submitted && contactForm.controls.name.errors" class="err">
+                <div *ngIf="contactForm.controls.name.errors.required">You cannot submit the form without a
+                    name
+                </div>
+                <div *ngIf="contactForm.controls.name.errors.minlength">A valid name needs to have at least
+                    5
+                    characters
+                </div>
+            </div>
+        </label>
+
+        <label>
+            Email:
+            <input type="text" formControlName="email" email="true">
+            <div *ngIf="submitted && contactForm.controls.email.errors" class="err">
+                <div *ngIf="contactForm.controls.email.errors.required">What is your email?</div>
+                <div *ngIf="contactForm.controls.email.errors?.email">Please provide a valid email address.</div>
+            </div>
+        </label>
+
+        <label>
+            Message:
+            <textarea formControlName="message"></textarea>
+            <div *ngIf="submitted && contactForm.controls.message.errors" class="err">
+                <div *ngIf="contactForm.controls.message.errors.required">What is your message to us?</div>
+            </div>
+        </label>
+
+        <input type="submit" value="Send Message" class="btnsub">
+        <input type="reset" value="Clear Form" class="btnsub">
+
+    </form>
+
+    <section *ngIf="submitted" class="finalresults">
+        <h4>Data you are submitting</h4>
+        <p><em>Name:</em> <span>{{ contactForm.controls.name.value }}</span></p>
+        <p><em>Email:</em> <span>{{ contactForm.controls.email.value }}</span></p>
+        <p><em>Message:</em> <span>{{ contactForm.controls.message.value }}</span></p>
+    </section>
+</div>
